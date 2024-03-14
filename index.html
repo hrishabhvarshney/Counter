@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            display: grid;
+            min-height: 100%;
+            place-items: center;
+            background-color: #212121;
+        }
+
+        .card {
+            width: 600px;
+            height: 350px;
+            box-shadow: 10px 10px 15px rgb(192, 183, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background-color: antiquewhite;
+        }
+
+        #counter {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .name {
+            font-size: 3rem;
+        }
+
+        .btn-lower,
+        .btn-upper {
+            font-size: 1.4rem;
+            outline: none;
+            padding: 0.7rem 1.5rem;
+            cursor: pointer;
+            margin: 0.2rem;
+            background-color: rgb(109, 109, 202);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1 class="name">Java Script Project</h1>
+        <h4 id="counter">0</h4>
+        <div class="container">
+            <button class="btn btn-lower">Lower</button>
+            <button class="btn btn-upper">Add</button>
+        </div>
+    </div>
+    <script>
+        const counter = document.querySelector('#counter');
+        const buttons = document.querySelectorAll('.btn');
+        let count = 0
+        buttons.forEach(element => {
+            element.addEventListener('click', () => {
+                if (element.classList.contains('btn-lower')) {
+                    count--;
+                } else if (element.classList.contains('btn-upper')) {
+                    count++;
+                }
+                counter.textContent = count;
+                if (count < 0) {
+                    counter.style.color = 'red';
+                } else if (count == 0) {
+                    counter.style.color = 'black';
+                }
+                else {
+                    counter.style.color = 'green';
+                }
+            })
+
+        });
+    </script>
+</body>
+
+</html>
